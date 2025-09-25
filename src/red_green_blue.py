@@ -3,13 +3,22 @@
 import re
 
 def red_green_blue(filename="src/rgb.txt"):
-    
+    fun1 = []
+    with open(filename, "r") as f:
+        for line in f:
+            fun = re.findall(r'\s*(\d*)\s*(\d*)\s*(\d*)\s?\t\t(.*)', line)
+            print(fun)
+            fun2 = list((map(lambda o: f"{o[0]}\t{o[1]}\t{o[2]}\t{o[3]}", fun)))
+            fun1.append(fun2[0])
+
+    return fun1
+        
 
 
 
 def main():
     result = red_green_blue()
-    print()
+    print(result)
 
     #print(f"The result should be a list, it is a {type(result)}
     #print(f"The length of the list should be 753, was {len(result)}   
